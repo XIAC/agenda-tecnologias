@@ -1,2 +1,25 @@
 <p>agenda-component works!</p>
-<h1>Agenda TEST 111111</h1>
+<div class="container">
+    <h4>Agenda</h4>
+    <form [formGroup]="agendaForm" (ngSubmit)="guardarAgenda()">
+        <div class="mb-3">
+            <label class="form-label">Telefono:</label>
+            <input type="text"
+                class="form-control"
+                formControlName="telefono"
+                />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Correo:</label>  
+            <input type="email"
+                class="form-control"
+                formControlName="correo"
+                />
+        </div>
+        <button type="submit" 
+            class="btn btn-success"
+            [disabled]="agendaForm.invalid">
+                Guardar Agenda
+        </button>
+    </form>
+</div>
