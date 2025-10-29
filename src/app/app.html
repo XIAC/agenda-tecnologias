@@ -1,5 +1,6 @@
+<div class="container">
 <h1>Tecnologias en internet</h1>
-
+<!-- 
 <h3>Interpolacion</h3>
 <h2>{{ titulo() }}</h2>
 <br>
@@ -10,21 +11,35 @@
 <button (click)="cambiarTitulo()">Cambiar Titulo</button>
 <br>
 <h3>Two binding</h3>
- <!-- [(ngModel)] -->
 <input [(ngModel)]="tituloValor"/>
 <br>
 <h2>{{ nombre }}</h2>
 <br>
 <button (click)="asignacionNombre()"> Cambiar Nombre</button>
-<br>
+<br> -->
 <h3>Componentes</h3>
 <nav>
     <a>Inicio</a> |
     <a routerLink="/ver-persona">Persona</a> |
     <a routerLink="/ver-agenda">Agenda</a>
 </nav>
-<div class="carga-vistas">
+<div class="card p-4">
     <router-outlet></router-outlet>
+</div>
+<div class="mt-2">
+    <ul class="list-group">
+        <li *ngFor="let ag of agendas" class="list-group-item">
+            <strong>{{ ag.persona.nombre }}</strong>
+            - {{ag.correo}} - {{ag.telefono}}
+        </li>
+        <!-- <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li> -->
+    </ul>
 </div>
 <!-- <app-persona-component ></app-persona-component>
 <app-agenda></app-agenda> -->
+
+</div>

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Directive } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Persona } from '../models/persona.model';
+import { PersonaServicio } from '../servicios/persona-servicio';
 
 @Component({
   selector: 'app-persona-component',
@@ -9,13 +11,21 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './persona-component.css'
 })
 export class PersonaComponent {
-  persona = {
+  persona : Persona = {
     nombre: '',
     edad : null,
     direccion : ''
   }
+  /**
+   *
+   */
+  constructor(private personaServicio: PersonaServicio) {
+
+  }
   guardarDatos(){
-    console.log("se gaurdaron los datos", this.persona);
-    alert('Se registro exitosamente');
+    this.personaServicio.guardarPersona(this.persona);
+    console.log("se guardaron los datos", this.persona);
+    alert(`Se registro exitosamente: ${this.persona.nombre}`);
+    this.persona = {nombre: '', edad: null, direccion:''};
   }
 }
